@@ -1,0 +1,24 @@
+{% extends 'default.html.twig' %}
+
+{% block content %}
+    <div class="row justify-content-center" style="width: 95%">
+    {% for employer in employers %}
+        <div class="card col-4 ml-2 mb-2">
+            <div class="card-body ">
+                <h5 class="card-title">{{ employer.name }}</h5>
+                {% for address in employer.address %}
+                    <h6 class="card-subtitle mb-2 text-muted">{{ address.ulica }}</h6>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ address.city[0].name }}</h6>
+                {% endfor %}
+
+                {% for position in employer.position %}
+                    <p class="card-text">{{ position.name }}</p>
+                {% endfor %}
+
+                <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}

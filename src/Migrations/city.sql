@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS city(
+    id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(255),
+    zip_code INT NOT NULL,
+    PRIMARY KEY (id)
+)

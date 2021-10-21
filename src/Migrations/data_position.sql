@@ -1,0 +1,15 @@
+INSERT INTO position VALUES
+(1, 'junior backend developer'),
+(2, 'junior frontend developer'),
+(3, 'mid backend developer'),
+(4, 'mid frontend developer'),
+(5, 'senior backend developer'),
+(6, 'senior frontend developer'),
+(7, 'junior project manager'),
+(8, 'mid UI/UX designer'),
+(9, 'junior android developer'),
+(10, 'mid IOS developer'),
+(11, 'senior android developer'),
+(12, 'mid project manager'),
+(13, 'mid sistem administrator'),
+(14, 'mid QA')
