@@ -1,13 +1,13 @@
 CREATE DATABASE IF NOT EXISTS `foi_workshop`  DEFAULT CHARACTER SET utf8mb4;
 
-CREATE TABLE IF NOT EXISTS city(
+CREATE TABLE IF NOT EXISTS foi_workshop.city(
                                    id INT NOT NULL AUTO_INCREMENT,
                                    name VARCHAR(255),
                                    zip_code INT NOT NULL,
                                    PRIMARY KEY (id)
 );
 
-CREATE TABLE IF NOT EXISTS address(
+CREATE TABLE IF NOT EXISTS foi_workshop.address(
                                       id INT NOT NULL AUTO_INCREMENT,
                                       street VARCHAR(255),
                                       city_id INT NOT NULL,
@@ -15,19 +15,19 @@ CREATE TABLE IF NOT EXISTS address(
                                       FOREIGN KEY (city_id) REFERENCES city (id)
 );
 
-CREATE TABLE IF NOT EXISTS category(
+CREATE TABLE IF NOT EXISTS foi_workshop.category(
                                        id INT NOT NULL AUTO_INCREMENT,
                                        name VARCHAR(255),
                                        PRIMARY KEY (id)
 );
 
-CREATE TABLE IF NOT EXISTS position (
+CREATE TABLE IF NOT EXISTS foi_workshop.position (
                                         id INT NOT NULL AUTO_INCREMENT,
                                         name VARCHAR(255),
                                         PRIMARY KEY (id)
 );
 
-CREATE TABLE IF NOT EXISTS employer (
+CREATE TABLE IF NOT EXISTS foi_workshop.employer (
                                         id INT NOT NULL AUTO_INCREMENT,
                                         name VARCHAR(255),
                                         address_id INT NOT NULL,
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS employer (
                                         FOREIGN KEY (address_id) references address (id)
 );
 
-CREATE TABLE IF NOT EXISTS employer_category(
+CREATE TABLE IF NOT EXISTS foi_workshop.employer_category(
                                                 id INT NOT NULL AUTO_INCREMENT,
                                                 employer_id INT,
                                                 category_id INT,
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS employer_category(
                                                 FOREIGN KEY (category_id) references category (id)
 );
 
-CREATE TABLE IF NOT EXISTS employer_position(
+CREATE TABLE IF NOT EXISTS foi_workshop.employer_position(
                                                 id INT NOT NULL AUTO_INCREMENT,
                                                 employer_id INT,
                                                 position_id INT,
@@ -53,18 +53,18 @@ CREATE TABLE IF NOT EXISTS employer_position(
                                                 FOREIGN KEY (position_id) references position (id)
 );
 
-INSERT INTO city VALUES
+INSERT INTO foi_workshop.city VALUES
 (1, 'Varaždin', 42000),
 (2, 'Zagreb', 10000),
 (3, 'Virovitica', 33000);
 
-INSERT INTO address VALUES
+INSERT INTO foi_workshop.address VALUES
 (1, 'Poduzetnička zona II', 3),
 (2, 'Strojarska cesta 22', 2),
 (3, 'Heinzelova ul. 33', 2),
 (4, 'Kapucinski trg 5', 1);
 
-INSERT INTO category VALUES
+INSERT INTO foi_workshop.category VALUES
 (1, 'MOBILE'),
 (2, 'WEB'),
 (3, 'CMS'),
@@ -74,7 +74,7 @@ INSERT INTO category VALUES
 (7, 'CDP'),
 (8, 'DAM');
 
-INSERT INTO position VALUES
+INSERT INTO foi_workshop.position VALUES
 (1, 'junior backend developer'),
 (2, 'junior frontend developer'),
 (3, 'mid backend developer'),
@@ -90,14 +90,14 @@ INSERT INTO position VALUES
 (13, 'mid sistem administrator'),
 (14, 'mid QA');
 
-INSERT INTO employer VALUES
+INSERT INTO foi_workshop.employer VALUES
 (1, 'Employer1', 1),
 (2, 'Employer2', 2),
 (3, 'Employer3', 3),
 (4, 'Employer4', 1),
 (5, 'Employer5', 3);
 
-INSERT INTO employer_category VALUES
+INSERT INTO foi_workshop.employer_category VALUES
 (1, 1, 4),
 (2, 1, 2),
 (3, 1, 3),
@@ -111,7 +111,7 @@ INSERT INTO employer_category VALUES
 (11, 5, 1),
 (12, 5, 4);
 
-INSERT INTO employer_position VALUES
+INSERT INTO foi_workshop.employer_position VALUES
 (1, 1, 4),
 (2, 1, 2),
 (3, 1, 3),
